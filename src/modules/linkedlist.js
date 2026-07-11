@@ -86,7 +86,7 @@ class LinkedList {
     }
 
     const removed = this.head.value;
-    this.head = this.head.newNode;
+    this.head = this.head.nextNode;
 
     return removed;
   }
