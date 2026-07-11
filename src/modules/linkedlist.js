@@ -43,4 +43,12 @@ class LinkedList {
 
     return counter;
   }
+
+  head() {
+    if (!this.head) {
+      return;
+    }
+
+    return this.head.value;
+  }
 }
