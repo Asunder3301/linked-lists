@@ -64,4 +64,15 @@ class LinkedList {
 
     return temp.value;
   }
+
+  pop() {
+    if (!this.head) {
+      return;
+    }
+
+    const removed = this.head.value;
+    this.head = this.head.newNode;
+
+    return removed;
+  }
 }
