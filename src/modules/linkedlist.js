@@ -58,6 +58,7 @@ class LinkedList {
     }
 
     let temp = this.head;
+    //Traverses list
     while (temp.nextNode) {
       temp = temp.nextNode;
     }
@@ -74,5 +75,19 @@ class LinkedList {
     this.head = this.head.newNode;
 
     return removed;
+  }
+
+  contains(value) {
+    let temp = this.head;
+    //Traverses list
+    while (temp && temp.value !== value) {
+      temp = temp.nextNode;
+    }
+
+    if (temp) {
+      return true;
+    }
+
+    return false;
   }
 }
