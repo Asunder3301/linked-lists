@@ -5,6 +5,10 @@ class LinkedList {
     this.head = null;
   }
 
+  prepend(value) {
+    this.head = new Node(value, this.head);
+  }
+
   append(value) {
     const newNode = new Node(value);
 
@@ -14,12 +18,12 @@ class LinkedList {
       return;
     }
 
-    let current = this.head;
+    let temp = this.head;
     //Traverses list
-    while (current.nextNode) {
-      current = current.nextNode;
+    while (temp.nextNode) {
+      temp = temp.nextNode;
     }
 
-    current.nextNode = newNode;
+    temp.nextNode = newNode;
   }
 }
