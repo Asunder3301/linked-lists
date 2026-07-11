@@ -66,6 +66,20 @@ class LinkedList {
     return temp.value;
   }
 
+  at(index) {
+    if (index < 0) {
+      return;
+    }
+
+    let temp = this.head;
+    //Traverses list
+    for (let i = 0; i < index && temp; i++) {
+      temp = temp.nextNode;
+    }
+
+    return temp ? temp.value : undefined;
+  }
+
   pop() {
     if (!this.head) {
       return;
