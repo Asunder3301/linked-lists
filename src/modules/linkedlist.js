@@ -26,4 +26,21 @@ class LinkedList {
 
     temp.nextNode = newNode;
   }
+
+  size() {
+    if (!this.head) {
+      return 0;
+    }
+
+    let temp = this.head;
+    let counter = 0;
+
+    //Counts every node in the list
+    while (temp) {
+      counter++;
+      temp = temp.nextNode;
+    }
+
+    return counter;
+  }
 }
