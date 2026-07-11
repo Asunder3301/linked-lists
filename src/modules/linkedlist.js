@@ -87,7 +87,21 @@ class LinkedList {
     if (temp) {
       return true;
     }
-
     return false;
+  }
+
+  findIndex(value) {
+    let temp = this.head;
+    let index = 0;
+    //Traverses list
+    while (temp && temp.value !== value) {
+      index++;
+      temp = temp.nextNode;
+    }
+
+    if (temp) {
+      return index;
+    }
+    return -1;
   }
 }
