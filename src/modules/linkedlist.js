@@ -72,7 +72,7 @@ class LinkedList {
     }
 
     let temp = this.head;
-    //Traverses list
+    //Traverses list until it reaches index
     for (let i = 0; i < index && temp; i++) {
       temp = temp.nextNode;
     }
@@ -117,5 +117,33 @@ class LinkedList {
       return index;
     }
     return -1;
+  }
+
+  removeAt(index) {
+    if (index < 0) {
+      throw new RangeError("Enter a number greater than 0.");
+    }
+    if (!this.head) {
+      throw new RangeError("Index is out of range.");
+    }
+    //Handle removing head node
+    if (index === 0) {
+      this.head = this.head.nextNode;
+      return;
+    }
+
+    let current = this.head;
+    let previous = null;
+    //Traverses list until it reaches index
+    for (let i = 0; i < index; i++) {
+      previous = current;
+      current = current.nextNode;
+    }
+
+    if (!current) {
+      throw new RangeError("Index is out of range");
+    }
+
+    previous.newNode = current.newNod;
   }
 }
