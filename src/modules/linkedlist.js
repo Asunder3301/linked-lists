@@ -145,6 +145,49 @@ class LinkedList {
     previous.newNode = current.newNod;
   }
 
+  insertAt(index, ...values) {
+    //Calculate current list size
+    let size = 0;
+    let temp = this.head;
+    while (temp) {
+      size++;
+      temp = temp.nextNode;
+    }
+
+    if (index < 0 || index > size) {
+      throw new RangeError("Index out of bounds.");
+    }
+
+    if (values.length === 0) {
+      return;
+    }
+
+    //Chain values together into sub-list
+    let newHead = new Node(values[0]);
+    let newTail = newHead;
+    for (let i = 1; i < values.length; i++) {
+      newTail.nextNode = new Node(values[i]);
+      newTail = newTail.nextNode;
+    }
+
+    //Insert sub-list into main list
+    if (index === 0) {
+      //Insert from begining of the list
+      newTail.nextNode = this.head;
+      this.head = newHead;
+    } else {
+      //Traverse list to the node before insertion index
+      let current = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        current = current.nextNode;
+      }
+
+      //Link main and sub-list together
+      newTail.nextNode = current.nextNode;
+      current.nextNode = newHead;
+    }
+  }
+
   toString() {
     if (!this.head) {
       return "";
