@@ -146,4 +146,21 @@ class LinkedList {
 
     previous.newNode = current.newNod;
   }
+
+  toString() {
+    if (!this.head) {
+      return "";
+    }
+
+    let result = "";
+    let temp = this.head;
+    //Traverse list
+    while (temp) {
+      result += `( ${temp.value} ) -> `;
+      temp = temp.nextNode;
+    }
+
+    result += "null";
+    return result;
+  }
 }
