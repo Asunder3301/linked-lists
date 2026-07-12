@@ -10,11 +10,9 @@ class LinkedList {
   }
 
   append(value) {
-    const newNode = new Node(value);
-
     //Handles empty list
     if (!this.head) {
-      this.head = newNode;
+      this.head = new Node(value);
       return;
     }
 
@@ -24,7 +22,7 @@ class LinkedList {
       temp = temp.nextNode;
     }
 
-    temp.nextNode = newNode;
+    temp.nextNode = new Node(value);
   }
 
   size() {
